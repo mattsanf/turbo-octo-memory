@@ -15,9 +15,10 @@ export default createComponent(({onMounted}) => {
     template,
     setup() {
       onMounted(async () => {
-        const Rebilly = await useFramepay();
+        const {Rebilly} = await useFramepay();
 
         Rebilly.on('ready', () => {
+          console.log('ready bank account');
           const accountType = Rebilly.bban.mount('#rebilly-instruments-account-type', 'accountType');
           const accountNumber = Rebilly.bban.mount('#rebilly-instruments-account-number', 'accountNumber');
           const routingNumber = Rebilly.bban.mount('#rebilly-instruments-routing-number', 'routingNumber');

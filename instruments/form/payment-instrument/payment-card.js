@@ -17,9 +17,10 @@ export default createComponent(({onMounted}) => {
     template,
     setup() {
       onMounted(async () => {
-        const Rebilly = await useFramepay();
+        const {Rebilly} = await useFramepay();
   
         Rebilly.on('ready', () => {
+          console.log('ready payment card');
           const card = Rebilly.card.mount('#payment-card');
         });
       });      

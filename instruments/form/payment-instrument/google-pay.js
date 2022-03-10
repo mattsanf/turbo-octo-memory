@@ -16,9 +16,10 @@ export default createComponent(({
     setup() {
       const googlePayForm = ref();
       onMounted(async () => {
-        const Rebilly = await useFramepay();
+        const {Rebilly} = await useFramepay();
   
         Rebilly.on('ready', () => {
+          console.log('ready googlePay');
           var googlePay = Rebilly.googlePay.mount('#google-pay', {
             type: 'googlePay',
             form: googlePayForm.value,

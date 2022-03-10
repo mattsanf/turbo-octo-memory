@@ -4,7 +4,7 @@ import { useData } from '../fetch-data';
 const template = `
 <div>
   <div style="display: flex; flex-direction: column; align-items: center">
-    <paypal />
+    <pay-pal />
     <google-pay />
   </div>
   <hr/>
@@ -27,7 +27,7 @@ export default createComponent(({
       paymentCard: useComponent('form/payment-instrument/payment-card'),
       bankAccount: useComponent('form/payment-instrument/bank-account'),
       googlePay: useComponent('form/payment-instrument/google-pay'),
-      paypal: useComponent('form/payment-instrument/pay-pal'),
+      payPal: useComponent('form/payment-instrument/pay-pal'),
     },
     template,
     setup() {

@@ -14,9 +14,10 @@ export default createComponent(({
     template,
     setup() {
       onMounted(async () => {
-        const Rebilly = await useFramepay();
+        const {Rebilly} = await useFramepay();
   
         Rebilly.on('ready', () => {
+          console.log('ready paypal');
           var paypal = Rebilly.paypal.mount('#pay-pal');
         });
       });

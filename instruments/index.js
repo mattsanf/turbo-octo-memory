@@ -7,20 +7,29 @@ class Instruments {
     this.version = '0.0.1';
   }
 
-  mount(options = {
+  async mount(options = {
     form: '#rebilly-instruments'
   }) {
-    useVue({
-      onload: async ({createApp}) => {
-        await useFramepay();
-        createApp({
-          template: `<rebilly-instruments-form/>`,
-          components: {
-            RebillyInstrumentsForm: useComponent('form')
-          }
-        }).mount(options.form);
-      }
-    });
+    return new Promise((resolve) => {
+      document.addEventListener('touchstart', () => {}, {passive: true});
+      const form = document.querySelector(options.form);
+      form.innerHTML = `
+        
+      `
+
+      useVue({
+        onload: async ({createApp}) => {
+          useFramepay();
+          createApp({
+            template: `<rebilly-instruments-form/>`,
+            components: {
+              RebillyInstrumentsForm: useComponent('form')
+            }
+          }).mount(options.form);
+          resolve();
+        }
+      });
+    })
   }
 }
 

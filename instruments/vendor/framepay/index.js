@@ -17,5 +17,5 @@ export const useFramepay = async (
     await Rebilly.initialize(options);
   }
 
-  return Rebilly;
+  return {Rebilly};
 }

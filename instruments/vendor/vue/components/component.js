@@ -9,17 +9,10 @@ export const createComponent = (component = () => {}) => {
 
 export const useComponent = (name) => {
   const {
-    defineComponent,
     defineAsyncComponent
   } = window.Vue;
 
   return defineAsyncComponent({
     loader: () => import(/* @vite-ignore */`../../../${name}`),
-    loadingComponent: defineComponent({
-      template: `<p>LOADING...</p>`,
-      setup() {
-        console.log('loading...');
-      }
-    }),
   });
 }
