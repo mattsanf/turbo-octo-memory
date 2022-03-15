@@ -1,5 +1,4 @@
-import Instruments from './instruments';
-
 Instruments.mount({
-  form: '#rebilly-instruments'
+  form: '#rebilly-instruments',
+  summary: '#summary'
 });
